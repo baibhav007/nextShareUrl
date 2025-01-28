@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
   openGraph: {
     title: offer?.business_name || "Exclusive Deal",
     description: offer?.description || "Amazing deal available now!",
-    images:  offer?.description || "/loyaltty.png" ,
+    images:  offer?.deal_picture_url || "/loyaltty.png" ,
     url: `https://next-share-url.vercel.app/${params?.offerId || ""}`, // Ensure offerId is defined
     type: "website",
   },
