@@ -29,8 +29,8 @@ export async function generateMetadata({ params }) {
   openGraph: {
     title: offer?.business_name || "Exclusive Deal",
     description: offer?.description || "Amazing deal available now!",
-    images:  offer?.deal_picture_url || "/loyaltty.png" ,
-    // url: `https://6385-2401-4900-882a-c5d3-7996-88ed-2a25-7c99.ngrok-free.app/${params?.offerId || ""}`, // Ensure offerId is defined
+    images:  "https://next-share-url.vercel.app/loyaltty.png" || "/loyaltty.png" ,
+    url: `https://next-share-url.vercel.app/${params?.offerId || ""}`, // Ensure offerId is defined
     type: "website",
   },
   twitter: {
