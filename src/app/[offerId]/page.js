@@ -26,19 +26,19 @@ export async function generateMetadata({ params }) {
  return {
   title: offer?.business_name || "Exclusive Deal", // Use optional chaining to avoid errors
   description: offer?.description || "Amazing deal available now!",
-  openGraph: {
-    title: offer?.business_name || "Exclusive Deal",
-    description: offer?.description || "Amazing deal available now!",
-    images:  "https://next-share-url.vercel.app/loyaltty.png" || "/loyaltty.png" ,
-    url: `https://next-share-url.vercel.app/${params?.offerId || ""}`, // Ensure offerId is defined
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: offer?.business_name || "Exclusive Deal",
-    description: offer?.description || "Don't miss out!",
-    image: offer?.deal_picture_url || "/loyaltty.png",
-  },
+  // openGraph: {
+  //   title: offer?.business_name || "Exclusive Deal",
+  //   description: offer?.description || "Amazing deal available now!",
+  //   images:  "https://next-share-url.vercel.app/loyaltty.png" || "/loyaltty.png" ,
+  //   url: `https://next-share-url.vercel.app/${params?.offerId || ""}`, // Ensure offerId is defined
+  //   type: "website",
+  // },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: offer?.business_name || "Exclusive Deal",
+  //   description: offer?.description || "Don't miss out!",
+  //   image: offer?.deal_picture_url || "/loyaltty.png",
+  // },
 };
 }
 
