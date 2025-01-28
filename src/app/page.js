@@ -1,3 +1,5 @@
+"use client"; // Marking the file as a client-side component
+
 import { useEffect } from "react";
 
 export default function Home() {
