@@ -15,11 +15,24 @@ async function getOffer(offerId) {
 // Metadata generation for SEO and social sharing
 export async function generateMetadata({ params }) {
   const offer = await getOffer(params.offerId);
+  console.log("Generated Metadata: ", offer); // Check if offer is fetched
 
   if (!offer) {
     return {
       title: "Deal Not Found",
       description: "Sorry, this deal is unavailable.",
+      openGraph: {
+        title: "Deal Not Found",
+        description: "Sorry, this deal is unavailable.",
+        images: ["/loyaltty.png"],
+        url: `https://next-share-url.vercel.app/${params.offerId || ""}`,
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Deal Not Found",
+        description: "Sorry, this deal is unavailable.",
+        image: "/loyaltty.png",
+      },
     };
   }
 
