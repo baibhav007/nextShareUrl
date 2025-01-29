@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
             alt: "Deal Not Found Image",
           },
         ],
-        url: `https://next-share-url.vercel.app/${params.offerId || ""}`,
+        url: `https://share.loyaltty.com/${params.offerId || ""}`,
       },
       twitter: {
         card: "summary_large_image",
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
           alt: "Deal Image",
         },
       ],
-      url: `https://next-share-url.vercel.app/${params.offerId || "default"}`, // Correct the fallback URL
+      url: `https://share.loyaltty.com/${params.offerId || "default"}`, // Correct the fallback URL
       type: "website",
     },
     twitter: {
