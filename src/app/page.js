@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Hello Loyaltty</h1>
+      <h1>Welcome to Loyaltty </h1>
       <p>Redirecting you to the new domain...</p>
     </div>
   );
