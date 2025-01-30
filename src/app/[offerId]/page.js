@@ -14,8 +14,8 @@ async function getOffer(offerId) {
 
 // Metadata generation for SEO and social sharing
 export async function generateMetadata({ params }) {
-  const offer = await getOffer(params.offerId);
-  console.log("Generated Metadata: ", offer); // Check if offer is fetched
+  const { offerId } = await params; // Ensure params are awaited before accessing offerId
+  const offer = await getOffer(offerId);
 
   if (!offer) {
     return {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
             alt: "Deal Not Found Image",
           },
         ],
-        url: `https://next-share-url.vercel.app/${params.offerId || ""}`,
+        url: `https://share.loyaltty.com/${offerId || ""}`,
       },
       twitter: {
         card: "summary_large_image",
@@ -44,20 +44,20 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: offer?.business_name || "Exclusive Deal", // Use optional chaining to avoid errors
+    title: offer?.business_name || "Exclusive Deal",
     description: offer?.description || "Amazing deal available now!",
     openGraph: {
       title: offer?.business_name || "Exclusive Deal",
       description: offer?.description || "Amazing deal available now!",
       images: [
         {
-          url: offer?.deal_picture_url || "/loyaltty.png", // Ensure this is a fully qualified URL
+          url: offer?.deal_picture_url || "/loyaltty.png",
           width: 800,
           height: 600,
           alt: "Deal Image",
         },
       ],
-      url: `https://next-share-url.vercel.app/${params.offerId || "default"}`, // Correct the fallback URL
+      url: `https://share.loyaltty.com/${offerId || "default"}`,
       type: "website",
     },
     twitter: {
@@ -69,10 +69,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-
 // React component (Default Export)
 export default async function OfferPage({ params }) {
-  const offer = await getOffer(params.offerId);
+  const { offerId } = await params; // Await params before accessing offerId
+  const offer = await getOffer(offerId);
 
   if (!offer) {
     return (
@@ -102,7 +102,7 @@ export default async function OfferPage({ params }) {
             height={250}
             className="w-full h-[250px] object-cover rounded-t-xl"
           />
-            <div className="absolute top-4 left-2 flex items-center">
+          <div className="absolute top-4 left-2 flex items-center">
             <img src="star.png" alt="Star" className="w-16 h-16 object-contain" />
             <div
               className="absolute text-white text-xl font-bold"
