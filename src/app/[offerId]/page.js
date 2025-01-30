@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
             alt: "Deal Not Found Image",
           },
         ],
-        url: `https://share.loyaltty.com/${offerId || ""}`,
+        url: `https://share.loyaltty.com/${params.offerId || ""}`,
       },
       twitter: {
         card: "summary_large_image",
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
           alt: "Deal Image",
         },
       ],
-      url: `https://share.loyaltty.com/${offerId || "default"}`,
+      url: `https://share.loyaltty.com/${params.offerId || "default"}`, // Correct the fallback URL
       type: "website",
     },
     twitter: {
